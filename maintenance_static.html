@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+
+    .container {
+      position: relative;
+      text-align: center;
+      color: blue;
+    }
+
+    .bottom-left {
+      position: absolute;
+      bottom: 8px;
+      left: 16px;
+    }
+
+    .top-left {
+      position: absolute;
+      top: 8px;
+      left: 16px;
+    }
+
+    .top-right {
+      position: absolute;
+      top: 8px;
+      right: 16px;
+    }
+
+    .bottom-right {
+      position: absolute;
+      bottom: 8px;
+      right: 16px;
+    }
+
+    .content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: Arial;
+      font-size: xx-large;
+      color: white;
+    }
+
+    .statuslink {
+      position: absolute;
+      top: 80%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: Arial;
+      font-size: x-large;
+      color: white;
+    }
+
+    a:link {
+      color: white;
+      background-color: transparent;
+      text-decoration: none;
+    }
+
+    a:visited {
+      color: orange;
+      background-color: transparent;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: pink;
+      background-color: transparent;
+      text-decoration: underline;
+    }
+
+    a:active {
+      color: yellow;
+      background-color: transparent;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body style="background-color:darkblue;">
+
+
+<div class="container">
+<img src="./truck.png" alt="Dockstore" style="width:50%">
+<img src="./ship.png" alt="Dockstore" style="width:50%">
+
+<div class="content"><strong>Dockstore is down for maintenance - we hope to be back up soon!</strong></div>
+<div  class="statuslink"><strong><a href="https://status.dockstore.org/" target="_blank">Click here for Dockstore status</a></strong></div>
+
+</div>
+
+</body>
+</html>
