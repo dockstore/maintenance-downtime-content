@@ -24,8 +24,6 @@ jobs:
                                     echo 'export S3_BUCKET_PATH="test/$(echo ${CIRCLE_BRANCH})"' >> $BASH_ENV
                               fi
                               echo ${S3_BUCKET_PATH}
-                  # make the bucket path have only the files that are in the source ('from') directory
-                  # https://docs.aws.amazon.com/cli/latest/reference/s3/sync.html
                   - aws-s3/copy:
                           arguments: '--recursive'
                           from: './content/'
