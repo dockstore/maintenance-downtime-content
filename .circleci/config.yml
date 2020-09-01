@@ -20,13 +20,10 @@ jobs:
                                     echo 'Uploading downtime content from master branch to production folder on bucket'
                                     echo 'export S3_BUCKET_PATH="production"' >> $BASH_ENV
                               else
-                                    echo 'Uploading downtime content from testing branch'
+                                    echo 'Uploading downtime content from branch'
                                     echo 'export S3_BUCKET_PATH="test/$(echo ${CIRCLE_BRANCH})"' >> $BASH_ENV
                               fi
                               echo ${S3_BUCKET_PATH}
                   - aws-s3/copy:
-                          from: '*.html'
-                          to: 's3://${AWS_BUCKET}/${S3_BUCKET_PATH}/'
-                  - aws-s3/copy:
-                          from: '*.png'
+                          from: './content/'
                           to: 's3://${AWS_BUCKET}/${S3_BUCKET_PATH}/'
