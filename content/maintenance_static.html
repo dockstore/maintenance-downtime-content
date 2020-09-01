@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+
+    .container {
+      position: relative;
+      text-align: center;
+    }
+
+    .bottom-left {
+      position: absolute;
+      bottom: 8px;
+      left: 16px;
+    }
+
+    .top-left {
+      position: absolute;
+      top: 8px;
+      left: 16px;
+    }
+
+    .top-right {
+      position: absolute;
+      top: 8px;
+      right: 16px;
+    }
+
+    .bottom-right {
+      position: absolute;
+      bottom: 8px;
+      right: 16px;
+    }
+
+    .content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: Arial;
+      font-size: xx-large;
+      color: blue;
+    }
+
+    .statuslink {
+      position: absolute;
+      top: 80%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: Arial;
+      font-size: x-large;
+      color: white;
+    }
+    </style>
+</head>
+<body>
+
+<div class="top-left"><img src="./dockstore.png" alt="Dockstore"></div>
+<div class="content"><strong>Dockstore is down for maintenance - we expect to be back soon!</strong></div>
+<div  class="statuslink"><strong><a href="https://status.dockstore.org/" target="_blank">Click here for Dockstore status</a></strong></div>
+
+</body>
+</html>
