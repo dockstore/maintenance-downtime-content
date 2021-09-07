@@ -28,3 +28,11 @@ jobs:
                           arguments: '--recursive'
                           from: './content/'
                           to: 's3://${AWS_BUCKET}/${S3_BUCKET_PATH}/'
+
+workflows:
+      everything:
+          jobs:
+                - build:
+                    context:
+                        - aws-maintenance
+
