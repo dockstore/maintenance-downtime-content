@@ -1,30 +1,37 @@
 version: 2.1
 
 orbs:
-      aws-s3: circleci/aws-s3@1.0.16 #imports the s3 orb in the circleci namespace
+  aws-s3: circleci/aws-s3@1.0.16 #imports the s3 orb in the circleci namespace
 
 jobs:
-      build:
-            docker:
-                  - image: 'circleci/python:2.7'
-            steps:
-                  - checkout
-                  - run:
-                          name: Check branch to set s3 bucket path
-                          command: |
-                              echo ${CIRCLE_BRANCH}
-                              if [ "${CIRCLE_BRANCH}" == "develop" ]; then
-                                    echo 'Uploading downtime content from develop branch to staging folder on bucket'
-                                    echo 'export S3_BUCKET_PATH="develop"' >> $BASH_ENV
-                              elif [ "${CIRCLE_BRANCH}" == "master" ]; then
-                                    echo 'Uploading downtime content from master branch to production folder on bucket'
-                                    echo 'export S3_BUCKET_PATH="production"' >> $BASH_ENV
-                              else
-                                    echo 'Uploading downtime content from branch'
-                                    echo 'export S3_BUCKET_PATH="test/$(echo ${CIRCLE_BRANCH})"' >> $BASH_ENV
-                              fi
-                              echo ${S3_BUCKET_PATH}
-                  - aws-s3/copy:
-                          arguments: '--recursive'
-                          from: './content/'
-                          to: 's3://${AWS_BUCKET}/${S3_BUCKET_PATH}/'
+  build:
+    docker:
+      - image: 'circleci/python:2.7'
+    steps:
+      - checkout
+      - run:
+          name: Check branch to set s3 bucket path
+          command: |
+            echo ${CIRCLE_BRANCH}
+            if [ "${CIRCLE_BRANCH}" == "develop" ]; then
+                  echo 'Uploading downtime content from develop branch to staging folder on bucket'
+                  echo 'export S3_BUCKET_PATH="develop"' >> $BASH_ENV
+            elif [ "${CIRCLE_BRANCH}" == "master" ]; then
+                  echo 'Uploading downtime content from master branch to production folder on bucket'
+                  echo 'export S3_BUCKET_PATH="production"' >> $BASH_ENV
+            else
+                  echo 'Uploading downtime content from branch'
+                  echo 'export S3_BUCKET_PATH="test/$(echo ${CIRCLE_BRANCH})"' >> $BASH_ENV
+            fi
+            echo ${S3_BUCKET_PATH}
+      - aws-s3/copy:
+          arguments: '--recursive'
+          from: './content/'
+          to: 's3://${AWS_BUCKET}/${S3_BUCKET_PATH}/'
+
+workflows:
+  everything:
+    jobs:
+      - build:
+          context:
+            - aws-maintenance
