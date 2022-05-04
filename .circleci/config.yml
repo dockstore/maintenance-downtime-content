@@ -1,13 +1,18 @@
 version: 2.1
 
 orbs:
-  aws-s3: circleci/aws-s3@1.0.16 #imports the s3 orb in the circleci namespace
+  aws-s3: circleci/aws-s3@3.1.1 #imports the s3 orb in the circleci namespace
 
 jobs:
   build:
     docker:
       - image: 'circleci/python:2.7'
+    executor: aws-cli/default    
     steps:
+      - aws-cli/setup:
+          profile-name: WEB IDENTITY PROFILE
+          role-arn: $AWS_ROLE_ARN
+          role-session-name: "CircleCI-${CIRCLE_WORKFLOW_ID}-${CIRCLE_JOB}"
       - checkout
       - run:
           name: Check branch to set s3 bucket path
@@ -34,4 +39,4 @@ workflows:
     jobs:
       - build:
           context:
-            - aws-maintenance
+            - aws-maintenance-v2
