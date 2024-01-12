@@ -1,64 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.container {
+  position: relative;
+  text-align: center;
+}
 
-    .container {
-      position: relative;
-      text-align: center;
-    }
+.bottom-left {
+  position: absolute;
+  bottom: 8px;
+ left: 16px;
+}
 
-    .bottom-left {
-      position: absolute;
-      bottom: 8px;
-      left: 16px;
-    }
+.top-left {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
 
-    .top-left {
-      position: absolute;
-      top: 8px;
-      left: 16px;
-    }
+.top-right {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
 
-    .top-right {
-      position: absolute;
-      top: 8px;
-      right: 16px;
-    }
+.bottom-right {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+}
 
-    .bottom-right {
-      position: absolute;
-      bottom: 8px;
-      right: 16px;
-    }
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Arial;
+  font-size: xx-large;
+  color: blue;
+}
 
-    .content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-family: Arial;
-      font-size: xx-large;
-      color: blue;
-    }
-
-    .statuslink {
-      position: absolute;
-      top: 80%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-family: Arial;
-      font-size: x-large;
-      color: white;
-    }
-    </style>
+.statuslink {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Arial;
+  font-size: x-large;
+  color: white;
+}
+</style>
 </head>
 <body>
 
-<div class="top-left"><img src="./dockstore.png" alt="Dockstore"></div>
+<div class="top-left"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNDgiIGhlaWdodD0iOTYiIHg9IjAiIHk9IjAiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDE0OCA5NiIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTguMSwtOS41KSI+PHBvbHlnb24gcG9pbnRzPSI4LjEgMjggNTguMiA5LjUgNTguMiAxMDUuNCA4LjEgODciIGZpbGw9IiM3OTg2Y2IiLz48cG9seWdvbiBwb2ludHM9IjYyLjkgOS41IDE0Ny40IDMxLjQgMTQ3LjQgODMuNSA2Mi45IDEwNS40IiBmaWxsPSIjNzk4NmNiIi8+PHBhdGggZD0ibTM4LjUgNjQuMmMtMC42LTAtMS4yLTAtMS43IDAuMWwtNS41LTIxLjljMi4yLTEuNSAzLjgtNC41IDMuOC03LjcgMC00LjMtMi44LTctNi02LjEtMy4xIDAuOS01LjQgNC42LTUuNCA4LjUgMCAyLjEgMC43IDMuOSAxLjkgNWwtOS4yIDE4LjljLTAuNC0wLjItMC44LTAuNC0xLjItMC40LTEuNy0wLjEtMyAxLjktMyA0LjNzMS4zIDQuNyAzIDQuOWMxLjIgMC4yIDIuMi0wLjcgMi44LTJsMTAuOSA1Yy0wLjEgMC43LTAuMiAxLjUtMC4yIDIuMy0wIDYuNCA0LjIgMTIuOCA5LjkgMTQuNSA2LjMgMS45IDEyLjEtMi44IDEyLjEtMTAuNiAwLTcuOC01LjctMTQuNS0xMi0xNC45em0tMjAuMiAyLjFjMC0wLjIgMC0wLjUgMC0wLjcgMC0xLjItMC4zLTIuNC0wLjgtMy4ybDkuMy0xOS4zYzAuNyAwLjMgMS40IDAuNCAyLjIgMC4zIDAuMy0wIDAuNi0wLjEgMC44LTAuMmw1LjQgMjEuNmMtMi45IDEtNS4xIDMuNC02LjEgNi43eiIgZmlsbD0iI2ZmZiIvPjxwYXRoIGQ9Im04MC41IDg3LjVjLTAuOCAwLTEuNS0wLjctMS41LTEuNXYtNTkuMmMwLTAuOCAwLjctMS41IDEuNS0xLjVzMS41IDAuNyAxLjUgMS41djU5LjJjMCAwLjgtMC43IDEuNS0xLjUgMS41eiIgZmlsbD0iI2M1Y2FlOSIvPjxwYXRoIGQ9Im05My4yIDg1LjJjLTAuOCAwLTEuNS0wLjctMS41LTEuNXYtNTQuOGMwLTAuOCAwLjctMS41IDEuNS0xLjUgMC44IDAgMS41IDAuNyAxLjUgMS41djU0LjhjMCAwLjgtMC43IDEuNS0xLjUgMS41eiIgZmlsbD0iI2M1Y2FlOSIvPjxwYXRoIGQ9Im0xMDQuMSA4My4zYy0wLjggMC0xLjUtMC43LTEuNS0xLjV2LTUwLjljMC0wLjggMC43LTEuNSAxLjUtMS41czEuNSAwLjcgMS41IDEuNXY1MC45YzAgMC44LTAuNyAxLjUtMS41IDEuNXoiIGZpbGw9IiNjNWNhZTkiLz48cGF0aCBkPSJtMTEzLjUgODEuOGMtMC44IDAtMS41LTAuNy0xLjUtMS41di00Ny42YzAtMC44IDAuNy0xLjUgMS41LTEuNXMxLjUgMC43IDEuNSAxLjV2NDcuNmMwIDAuOC0wLjcgMS41LTEuNSAxLjV6IiBmaWxsPSIjYzVjYWU5Ii8+PHBhdGggZD0ibTEyMS44IDgwLjRjLTAuOCAwLTEuNS0wLjctMS41LTEuNXYtNDQuNmMwLTAuOCAwLjctMS41IDEuNS0xLjVzMS41IDAuNyAxLjUgMS41djQ0LjZjMCAwLjgtMC43IDEuNS0xLjUgMS41eiIgZmlsbD0iI2M1Y2FlOSIvPjxwYXRoIGQ9Im0xMjkuMSA3OS4xYy0wLjggMC0xLjUtMC43LTEuNS0xLjV2LTQyYzAtMC44IDAuNy0xLjUgMS41LTEuNSAwLjggMCAxLjUgMC43IDEuNSAxLjV2NDJjMCAwLjgtMC43IDEuNS0xLjUgMS41eiIgZmlsbD0iI2M1Y2FlOSIvPjxwYXRoIGQ9Im0xMzUuNyA3OGMtMC44IDAtMS41LTAuNy0xLjUtMS41di0zOS43YzAtMC44IDAuNy0xLjUgMS41LTEuNSAwLjggMCAxLjUgMC43IDEuNSAxLjV2MzkuN2MwIDAuOC0wLjcgMS41LTEuNSAxLjV6IiBmaWxsPSIjYzVjYWU5Ii8+PHBhdGggZD0ibTE0MS41IDc3Yy0wLjggMC0xLjUtMC43LTEuNS0xLjV2LTM3LjdjMC0wLjggMC43LTEuNSAxLjUtMS41IDAuOCAwIDEuNSAwLjcgMS41IDEuNXYzNy43YzAgMC44LTAuNyAxLjUtMS41IDEuNXoiIGZpbGw9IiNjNWNhZTkiLz48L2c+PC9zdmc+Cg==" alt="Dockstore"/></div>
 <div class="content"><strong>Dockstore is down for maintenance - we expect to be back soon!</strong></div>
-<div  class="statuslink"><strong><a href="https://status.dockstore.org/" target="_blank">Click here for Dockstore status</a></strong></div>
+<div class="statuslink"><strong><a href="https://status.dockstore.org/" target="_blank">Click here for Dockstore status</a></strong></div>
 
 </body>
 </html>
